@@ -1,8 +1,11 @@
 import express from "express";
 
 const express = require("express");
+const path = require("path");
 const app = express();
 const router = express.Router();
+
+app.use("/static", express.static(path.join(__dirname, "public")));
 
 router.use((req, res, next) => {
   console.log("Time:", Date.now());
